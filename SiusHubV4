@@ -14,7 +14,7 @@ local Window = Rayfield:CreateWindow({
 		Title = "Horrific Housing",
 		Subtitle = "Key System",
 		Note = "Welcome to Sius Hub! Join our discord to get key ! https://discord.gg/3HsT6F4ZAw. Don't leave the server after getting the key. We'll change the key monthly",
-		Key = "30974"
+		Key = "KEY30974EA"
 	}
 })
 
