@@ -1,82 +1,66 @@
--- Sius Hub powered by Sirius. Warning : Do not copy and re-name my script without my permission
+print("Successful loaded Silox Hub Beta")
 local Rayfield = loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/Rayfield/main/source'))()
-
 local Window = Rayfield:CreateWindow({
-	Name = "Horrific Housing Hub",
-	LoadingTitle = "Sius Hub v4",
-	LoadingSubtitle = "By Sius",
-	ConfigurationSaving = {
-		Enabled = true,
-		FileName = "Big Hub"
-	},
-	KeySystem = false, -- Set this to true to use our key system
-	KeySettings = {
-		Title = "Horrific Housing",
-		Subtitle = "Key System",
-		Note = "Welcome to Sius Hub! Join our discord to get key ! https://discord.gg/3HsT6F4ZAw. Don't leave the server after getting the key. We'll change the key monthly ( warning : if you enter the wrong key code 3 times. your roblox will be closed",
-		Key = "KEY30974EA"
-	}
+    Name = "Silox | Boost Up Hub",
+    LoadingTitle = "Loading Silox Hub | Boost up",
+    LoadingSubtitle = "Join our Discord server for more information",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = SiloxBoostUpHub, 
+       FileName = "SiloxHubBeta1"
+    },
+    Discord = {
+       Enabled = true,
+       Invite = "https://discord.gg/RYbTrcvcHQ", 
+       RememberJoins = true 
+    },
+    KeySystem = false, 
+    KeySettings = {
+       Title = "Silox",
+       Subtitle = "Key System",
+       Note = "Join the discord (discord.gg/sirius)",
+       FileName = "SiriusKey",
+       SaveKey = true,
+       GrabKeyFromSite = false, 
+       Key = "Hello"
+    }
+ })
+
+ local Tab = Window:CreateTab("Information", 12523224032)
+ local Section = Tab:CreateSection("Developers")
+ local Label = Tab:CreateLabel("Main Developer : Sius")
+ local Section = Tab:CreateSection("Changelog")
+ local Paragraph = Tab:CreateParagraph({Title = "What's new in Silox Hub 2023 March Updates?", Content = "Major Update for Silox Hub. 7 brand new feature added in Silox Hub. Including Anti Void, Equip Pets, Random Potion etc."})
+
+
+ local Tab = Window:CreateTab("General", 11473531748)
+ local Section = Tab:CreateSection("Character Property")
+ local Slider = Tab:CreateSlider({
+   Name = "WalkSpeed",
+   Range = {16, 200},
+   Increment = 1,
+   Suffix = "WalkSpeed",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(s)
+      game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+      print("Character Sl_ius WalkSpeed", s)
+   end,
 })
-
-Rayfield:Notify("Loaded","Sius Hub v4 has successfully loaded in",10010348543)
-
-Rayfield:Notify("Sius UI","Thank you for using Sius hub v4 Early Access. Hope you having a great time using the script 😉 | Developer : Sius | UI by Sirius | | Verison 1.4 ( v4 )",10010348543)
-
-Rayfield:Notify("Join our discord!","Join our discord server | https://discord.gg/RbFB2fp88V",10010348543)
-
-local Tab = Window:CreateTab("Infomation")
-local Section = Tab:CreateSection("announcement")
-local Paragraph = Tab:CreateParagraph({Title = "What's Sius Hub??", Content = "Just a script created by a person who just started coding. I will improve my coding skill once school test was ended!"})
-local Paragraph = Tab:CreateParagraph({Title = "What's new?", Content = "Version 1.4 : Added Others Tab | Added FOV slider,Infinite Jump and new Teleportation Tap! more coming soon😁"})
-local Label = Tab:CreateLabel("More infomation in our discord server | https://discord.gg/3HsT6F4ZAw")
-
-local Section = Tab:CreateSection("UI")
-local Paragraph = Tab:CreateParagraph({Title = "What's the name of the ui that you're using currently", Content = "It called Rayfield Interface Suite made by Sirius. The UI looks clean and perfect. Why don't you try it?"})
-
-local Tab = Window:CreateTab("Character")
-local Section = Tab:CreateSection("Section 1")
-
-local Paragraph = Tab:CreateParagraph({Title = "Reset Character", Content = "Kill yourself once you press the Button"})
-
-local Button = Tab:CreateButton({
-	Name = "Reset Character",
-	Callback = function()
-		game.Players.LocalPlayer.Character.Humanoid.Health = 0-- Means The Character Health will turn to 0
-	end,
-})
-
-local Paragraph = Tab:CreateParagraph({Title = "Walkspeed", Content = "Change your walkspeed whatever you wanted to ( Limit : 100 )"})
-
 local Slider = Tab:CreateSlider({
-	Name = "Walkspeed",
-	Range = {16, 100},
-	Increment = 1,
-	Suffix = "Value",
-	CurrentValue = 16,
-	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(s)
-        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
-	end,
+   Name = "JumpHeight",
+   Range = {50, 200},
+   Increment = 1,
+   Suffix = "JumpHeight",
+   CurrentValue = 10,
+   Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(s)
+      game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+      print("Character Sl_ius JumpHeight", s)
+   end,
 })
-
-local Paragraph = Tab:CreateParagraph({Title = "Jumppower", Content = "Change your jumppower whatever you wanted to ( Limit : 200 )"})
-
 local Slider = Tab:CreateSlider({
-	Name = "Jumppower",
-	Range = {40, 200},
-	Increment = 1,
-	Suffix = "Value",
-	CurrentValue = 40,
-	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(s)
-        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
-	end,
-})
-
-local Paragraph = Tab:CreateParagraph({Title = "Set Health", Content = "You can change your Health whatever you wanted to ( Limit : 100 )"})
-
-local Slider = Tab:CreateSlider({
-	Name = "Set Health",
+	Name = "Health",
 	Range = {0, 100},
 	Increment = 1,
 	Suffix = "Health",
@@ -84,220 +68,431 @@ local Slider = Tab:CreateSlider({
 	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
 	Callback = function(s)
         game.Players.LocalPlayer.Character.Humanoid.Health = s
+        print("Character Sl_ius Health", s)
+	end,
+})
+local Slider = Tab:CreateSlider({
+	Name = "Field Of View",
+	Range = {0, 100},
+	Increment = 1,
+	Suffix = "FOV",
+	CurrentValue = 40,
+	Flag = "Slider1", 
+	Callback = function(FOV)
+         game.Workspace.Camera.FieldOfView = FOV-- The function that takes place when the slider changes
+    	print("Character Sl_ius Field Of View" , FOV)	-- The variable (Value) is a number which correlates to the value the slider is currently at
 	end,
 })
 
-local Paragraph = Tab:CreateParagraph({Title = "Infinte Jump", Content = "You can jump infinite times once you press it!"})
 
+local Section = Tab:CreateSection("Action Property")
 local Button = Tab:CreateButton({
-	Name = "Infinite Jump",
-	Callback = function()
-		local InfiniteJumpEnabled = true
-game:GetService("UserInputService").JumpRequest:connect(function()
-	if InfiniteJumpEnabled then
-		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-	end
-end)
-
-	end,
-})
-
-local Paragraph = Tab:CreateParagraph({Title = "Chat spammer", Content = "Chat. you're right."})
-
-local Button = Tab:CreateButton({
-	Name = "Chat spammer",
-	Callback = function()
-while wait() do
-local args = {
-    [1] = "This user is using Sius Hub. Why don't you try it out? Sius is the best hub mod ( i guess lol )",
-    [2] = "All"
+    Name = "Reset",
+    Callback = function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0 -- Just make the value to 0 then it's done.
+    Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+    Title = "Successful resetted your character",
+    Content = "Successfully resetted your character ( Humanoid.Health = 0 )",
+    Duration = 6.5, 
+    Image = 11998066503, -- Roblox ID
 }
-
-game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
-end
-
-	end,
-})
-
-
-
-local Paragraph = Tab:CreateParagraph({Title = "Future Plan", Content = "In the future, I'll add fly,noclip and even god mode inside here. Coming soon! ( I won't discontinue this project )"})
-
-
-        
-local Tab = Window:CreateTab("Visuals")
-local Section = Tab:CreateSection("Section 1")
-
-local Paragraph = Tab:CreateParagraph({Title = "ESP", Content = "Indicates the locations of all the players (Our ESP is very buggy right now. I recommended you go to others and use Unnamed ESP instead"})
-
+)
+    end,
+ })
 local Toggle = Tab:CreateToggle({
-	Name = "Esp",
-	CurrentValue = true,
-	Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-        local c = workspace.CurrentCamera
-local ps = game:GetService("Players")
-local lp = ps.LocalPlayer
-local rs = game:GetService("RunService")
-
-local function getdistancefc(part)
-    return (part.Position - c.CFrame.Position).Magnitude
-end
-
-local function esp(p,cr)
-    local h = cr:WaitForChild("Humanoid")
-    local hrp = cr:WaitForChild("HumanoidRootPart")
-
-    local text = Drawing.new("Text")
-    text.Visible = false
-    text.Center = true 
-    text.Outline = true 
-    text.Font = 2
-    text.Color = Color3.fromRGB(255,255,255)
-    text.Size = 13
-
-    local c1 
-    local c2 
-    local c3 
-
-    local function dc()
-        text.Visible = false
-        text:Remove()
-        if c1 then
-            c1:Disconnect()
-            c1 = nil 
-        end
-        if c2 then
-            c2:Disconnect()
-            c2 = nil 
-        end
-        if c3 then
-            c3:Disconnect()
-            c3 = nil 
-        end
-    end
-
-    c2 = cr.AncestryChanged:Connect(function(_,Value)
-        if not parent then
-            dc()
-        end
-    end)
-
-    c3 = h.HealthChanged:Connect(function(Value)
-        if (v<=0) or (h:GetState() == Enum.HumanoidStateType.Dead) then
-            dc()
-        end
-    end)
-
-    c1 = rs.RenderStepped:Connect(function(Value)
-        local hrp_pos,hrp_os = c:WorldToViewportPoint(hrp.Position)
-        if hrp_os then
-            text.Position = Vector2.new(hrp_pos.X,hrp_pos.Y)
-            text.Text = p.Name .. ' ('..tostring(math.floor(getdistancefc(hrp)))..' ms)'
-            text.Visible = true 
-        else
-            text.Visible = false 
-        end
-    end)
-end
-
-local function p_added(p)
-    if p.Character then
-        esp(p,p.Character)
-    end
-    p.CharacterAdded:Connect(function(cr)
-        esp(p,cr)
-    end)
-end
-
-
-for i,p in next, ps:GetPlayers() do 
-    if p ~= lp then
-        p_added(p)
-    end
-end
-
-ps.PlayerAdded:Connect(p_added)
-
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local Highlight = Instance.new("Highlight")
-Highlight.Name = "Highlight"
-function ApplyToCurrentPlayers()
-    for i,player in pairs(Players:GetChildren()) do 
-        repeat wait() until player.Character
-        if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
-            local HighlightClone = Highlight:Clone()
-            HighlightClone.Adornee = player.Character
-            HighlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
-            HighlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-            HighlightClone.Name = "Highlight"
-        end
-    end
-end    
-RunService.Heartbeat:Connect(function(Value)
-    ApplyToCurrentPlayers()
-end)-- The function that takes place when the toggle is pressed
-    		-- The variable (Value) is a boolean on whether the toggle is true or false
-	end,
+   Name = "Infinite Jump",
+   CurrentValue = false,
+   Flag = "Infjump", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(tog)
+      if tog then
+         _G.infinjump = true
+         print("Infinite Jump is now on")
+         Rayfield:Notify({
+            Title = "Nofitication",
+            Content = "Anti void is on",
+            Duration = 6.5,
+            Image = 4483362458,
+            }
+        )
+         local Player = game:GetService("Players").LocalPlayer
+         local Mouse = Player:GetMouse()
+         Mouse.KeyDown:connect(function(k)
+         if _G.infinjump then
+         if k:byte() == 32 then
+         Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+         Humanoid:ChangeState("Jumping")
+         wait(0.1)
+         Humanoid:ChangeState("Seated")
+         end
+         end
+         end)
+         local Player = game:GetService("Players").LocalPlayer
+         local Mouse = Player:GetMouse()
+             else
+         if _G.infinjump == true then
+         _G.infinjump = false
+         print("Infinite Jump is now off")
+         Rayfield:Notify({
+            Title = "Nofitication",
+            Content = "Infinite jump is off",
+            Duration = 6.5,
+            Image = 4483362458,
+            }
+        )
+         else
+         _G.infinjump = true
+         end
+         end
+   end,
 })
-
-local Paragraph = Tab:CreateParagraph({Title = "Warning", Content = "Future Project. Not in the UI"})
-local Paragraph = Tab:CreateParagraph({Title = "X-ray", Content = "Make surrounding obstacles invisible"})
-
-local Paragraph = Tab:CreateParagraph({Title = "Brightness", Content = "Change the game brightness ( Use it when the you're surrounded by darkness "})
-
+local Toggle = Tab:CreateToggle({
+   Name = "Noclip",
+   CurrentValue = false,
+   Flag = "Infjump", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(tog)
+      if tog then
+         _G.nclip = true
+         local Noclip = nil -- Don't mind about this. They're basically useless. I don't know how to code Noclip so i copied some random source code about Youtube lol
+         local Clip = nil 
+         
+         function noclip()
+            Clip = false
+            local function Nocl()
+               if Clip == false and game.Players.LocalPlayer.Character ~= nil then
+                  for _,v in pairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                     if v:IsA('BasePart') and v.CanCollide and v.Name ~= floatName then
+                        v.CanCollide = false
+                     end
+                  end
+               end
+               wait(0.21) -- basic optimization
+            end
+            Noclip = game:GetService('RunService').Stepped:Connect(Nocl)
+         end
+         
+         function clip()
+            if Noclip then Noclip:Disconnect() end
+            Clip = true
+         end
+         
+         noclip() -- to toggle noclip() and clip()
+             else
+         if _G.nclip == true then
+         _G.nclip = false
+         else
+         _G.nclip = true
+         end
+         end
+   end,
+})
+local Button = Tab:CreateButton({
+    Name = "Flying",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Activated",
+            Content = "Flying is activatived. To deactivative. Please reset your character",
+            Duration = 6.5,
+            Image = 4483362458,
+            }
+        )
+        loadstring(game:HttpGet(('https://pastebin.com/raw/WxmvCLLH'),true))()
+    end,
+ })
+local Tab = Window:CreateTab("Visuals", "11998074594")
+local Section = Tab:CreateSection("Players")
+local Section = Tab:CreateSection("World")
+local Label = Tab:CreateLabel("ESP coming soon")
 local Slider = Tab:CreateSlider({
 	Name = "Brightness",
 	Range = {1, 100},
 	Increment = 1,
 	Suffix = "Brightness",
 	CurrentValue = 1,
-	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(s)
-        game.Lighting.Brightness = s
+	Flag = "Slider1", 
+	Callback = function(s) 
+        game.Lighting.Brightness = 5 -- s is the variable
 	end,
 })
+local Button = Tab:CreateButton({
+    Name = "FullBright",
+    Callback = function()
+    -- The function that takes place when the button is pressed
+    end,
+ })
+local Button = Tab:CreateButton({
+    Name = "Remove Fog",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed fog ( FogStart & FogEnd )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+         game.Lighting.FogEnd = 100000
+         game.Lighting.FogStart = 1000
+    end,
+ })
 
+local Button = Tab:CreateButton({
+    Name = "Anti Void",
+    Callback = function() -- write the all the function below
+        local voidPart = Instance.new("Part") -- Add the Brick inside the game
+           print("Anti Void part has spawned") -- print the message in Client output
+           Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+               Title = "Part spawned",
+               Content = "Anti void part has spawned at 15.3, -12.98, 51. Spam pressing the Anti Void button will cost a lot of lag ",
+               Duration = 6.5, 
+               Image = 4483362458, -- Roblox ID
+               }
+           )
 
-local Paragraph = Tab:CreateParagraph({Title = "NEW! Fov", Content = "Change your camera FOV"})
+        voidPart.Transparency = 0.1 -- voidPart Transparency
+        voidPart.Anchored = true -- Check is voidPart anchored. If not the brick will fal down to the void
+        voidPart.Position = Vector3.new(15.3, -12.98, 51) -- voidPart location ( will be under the map )
+        voidPart.Size = Vector3.new(955, 1, 603) -- voidPart Size
+        voidPart.Color = Color3.fromRGB(0, 115, 255) -- voidPart Color
 
-local Slider = Tab:CreateSlider({
-	Name = "FOV",
-	Range = {0, 100},
-	Increment = 1,
-	Suffix = "Value",
-	CurrentValue = 40,
-	Flag = "Slider1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
-	Callback = function(Value)
-		local FOV = Value
-         game.Workspace.Camera.FieldOfView = FOV-- The function that takes place when the slider changes
-    		-- The variable (Value) is a number which correlates to the value the slider is currently at
-	end,
+        voidPart.Parent = game.Workspace -- voidPart location ( game file )
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Create a Private Platform",
+    Callback = function() -- write the all the function below
+        local Priv = Instance.new("Part") -- Add the Brick inside the game
+           print("Private Part created") -- print the message in Client output
+           Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+               Title = "Platform",
+               Content = "Created a Platform at 955, 1, 603. Don't spam pressing the Create a Private Platform buttton. It will cost a lot lag.",
+               Duration = 6.5, 
+               Image = 4483362458, -- Roblox ID
+               }
+           )
+
+        Priv.Transparency = 0.1 -- voidPart Transparency
+        Priv.Anchored = true -- Check is voidPart anchored. If not the brick will fal down to the void
+        Priv.Position = Vector3.new(955, 1, 603) -- voidPart location ( will be under the map )
+        Priv.Size = Vector3.new(23, 1, 26) -- voidPart Size
+        Priv.Color = Color3.fromRGB(255,255,255) -- voidPart Color
+
+        Priv.Parent = game.Workspace -- voidPart location ( game file )
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-26, 556, 116)
+    end,
 })
-
-local Tab = Window:CreateTab("Teleportation")
-local Section = Tab:CreateSection("Section 1")
-local Paragraph = Tab:CreateParagraph({Title = "TP to another person", Content = "Teleport onto another player by type their username"})
+local Tab = Window:CreateTab("Game", 12522958471) -- Title, Image
+local Section = Tab:CreateSection("Snowed In")
+local Paragraph = Tab:CreateParagraph({Title = "Warning", Content = "All feature inside this section will only work for Snowed In ( Map ) "})
+local Button = Tab:CreateButton({
+    Name = "Immortal",
+    Callback = function()
+        local args = {
+            [1] = 1
+        }
+        
+        workspace:WaitForChild("Plates"):WaitForChild("vendingmachineWork"):WaitForChild("remote"):FireServer(unpack(args))
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Regeneration Coil",
+    Callback = function()
+        local args = {
+            [1] = 2
+        }
+        
+        workspace:WaitForChild("Plates"):WaitForChild("vendingmachineWork"):WaitForChild("remote"):FireServer(unpack(args))     
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Cash out",
+    Callback = function()
+        local args = {
+            [1] = 3
+        }
+        
+        workspace:WaitForChild("Plates"):WaitForChild("vendingmachineWork"):WaitForChild("remote"):FireServer(unpack(args)) 
+    end,
+ })
+ local Section = Tab:CreateSection("LocalPlayer")
+  --MathTest Script
+  local Button = Tab:CreateButton({
+    Name = "Math Test Exploit",
+    Callback = function()
+        local args = {
+            [1] = "Correct"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("EventRemotes"):WaitForChild("MathTest"):FireServer(unpack(args))      
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Random Potion",
+    Callback = function()
+        local args = {
+            [1] = true
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("EventRemotes"):WaitForChild("Potion"):FireServer(unpack(args))
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Semi Godmode",
+    Callback = function()
+        print("Semi-Godmode activated by shitass")
+        Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+        Title = "Semi-Godmode activated",
+        Content = "Semi-Godmode is activated. You're now undefeatable.",
+        Duration = 6.5, 
+        Image = 11998558856, -- Roblox ID
+        }
+    )
+        _G.GM = true -- Change true to false to disable, made by shitass / peke#7374
+        while _G.GM do task.wait()
+        local retardargs = {
+        ["dir"] = Vector3.new(0,0,0), 
+        ["origin"] = Vector3.new(0,0,0), 
+        ["shooter"] = game:GetService("Players").LocalPlayer -- Change to any player if LP doesnt work
+        }
+        game:GetService'ReplicatedStorage'["damageMe"]:FireServer(-math.huge, retardargs)
+        end
+    end,
+ })
+ local Label = Tab:CreateLabel("You need a certain item to use Bat Exploit")
+ local Button = Tab:CreateButton({
+    Name = "Bat Exploit",
+    Callback = function()
+        while wait() do
+        game:GetService("Players").LocalPlayer.Character.Bat.Event:FireServer()
+        end
+    end,
+ })
+ local Label = Tab:CreateLabel("You need a certain item to use Sword Exploit")
+ local Button = Tab:CreateButton({
+    Name = "Sword Exploit",
+    Callback = function()
+        while wait() do
+        game:GetService("Players").LocalPlayer.Character.Sword.Event:FireServer()
+        end
+    end,
+ })
+ local Label = Tab:CreateLabel("You need a certain item to use Knife Exploit")
+ local Button = Tab:CreateButton({
+    Name = "Knife Exploit",
+    Callback = function()
+        while wait() do
+            game:GetService("Players").LocalPlayer.Character.Knife.Event:FireServer()
+        end
+    end,
+ })
+ local Label = Tab:CreateLabel("You need a certain item to use Katana Exploit")
+ local Button = Tab:CreateButton({
+    Name = "Katana Exploit",
+    Callback = function()
+        while wait() do
+        game:GetService("Players").LocalPlayer.Character.Katana.Event:FireServer()
+        end
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Hammer Exploit",
+    Callback = function()
+        while wait() do
+            game:GetService("Players").LocalPlayer.Character.Hammer.Event:FireServer()
+        end
+    end,
+ })
+local Section = Tab:CreateSection("Lobby")
+local Button = Tab:CreateButton({
+    Name = "Remove Vending Machine",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed model ( VendingMachine )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        game.Workspace.OtherObjects.VendingMachine:Destroy()
+    end,
+ })
+ local Label = Tab:CreateLabel("There's no need to added remove all obby killpart right? You already have Teleport to the victory feature. :/")
+ local Section = Tab:CreateSection("Match")
+ local Button = Tab:CreateButton({
+    Name = "Remove Lava",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed part ( Lava )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        game.Workspace.LavaPlate:Destroy()
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Remove Flood",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed part ( Kill )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        game.Workspace.Kill:Destroy()
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Remove Acid Rain",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed model ( Drop )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+         while wait() do
+        game.Workspace.Drop:Destroy()
+         end
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "Remove Spinner",
+    Callback = function()
+        Rayfield:Notify({
+            Title = "Removed",
+            Content = "Successfully removed model ( Spinner )",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+         while wait() do
+        game.Workspace.Spinner:Destroy()
+         end
+    end,
+ })
+ game.Lighting.FogEnd = 100000
+local Tab = Window:CreateTab("Teleportation", "11998066503")
+local Section = Tab:CreateSection("Players")
 local Input = Tab:CreateInput({
-	Name = "TP to another person",
+	Name = "Teleport to another player",
 	PlaceholderText = "Username",
 	RemoveTextAfterFocusLost = false,
-	Callback = function(Username)
+	Callback = function(User)
         local p1 = game.Players.LocalPlayer.Character.HumanoidRootPart
-        local p2 = Username
+        local p2 = User
         local pos = p1.CFrame
         
         p1.CFrame = game.Players[p2].Character.HumanoidRootPart.CFrame
 	end,
 })
-
-
+local Section = Tab:CreateSection("Lobby")
 local Button = Tab:CreateButton({
-	Name = "Checkpoint 1 ( obby )",
+	Name = "SpawnLocation",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(-0.102802634, 17.5549927, -68.6698685, 0.989578247, -3.82994481e-09, 0.14399597, 2.32248198e-09, 1, 1.06368736e-08, -0.14399597, -1.01915916e-08, 0.989578247), -- your desired position
+            location1 = Vector3.new(0, 6, -7), -- your desired position
          
         }
         
@@ -312,21 +507,59 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position 0, 6, -7')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position 0, 6, -7 ( SpawnLocation )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
 local Button = Tab:CreateButton({
-	Name = "Checkpoint 2 ( obby )",
+	Name = "Secret Room",
+	Callback = function()
+
+		local teleport_table = {
+            location1 = Vector3.new(-2, -9, -17), -- your desired position
+        }
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function bypass_teleport(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                a.Completed:Wait()
+                print('Arrived Secret Room')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -2, -9, -17 ( Secret Room )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+                }
+            )
+            end
+        end
+        
+        bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
+	end,
+})
+local Button = Tab:CreateButton({
+	Name = "Secret Key Room",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(-3.67434549, 51.9500046, -101.83606, 0.502718627, 7.78887497e-08, 0.864450097, -2.38615989e-08, 1, -7.6225426e-08, -0.864450097, 1.76927806e-08, 0.502718627), -- your desired position
-         
+            location1 = Vector3.new(-2, 6, -17), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -340,21 +573,26 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position -2, 6, -17')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -2, 6, -17 ( Secret Key Room )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
 local Button = Tab:CreateButton({
-	Name = "End of the obby",
+	Name = "Secret elevator",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(64.0310211, 126.607292, -118.963501, -0.585728467, 1.81736919e-08, -0.810507357, 2.60501913e-08, 1, 3.59694963e-09, 0.810507357, -1.90070359e-08, -0.585728467), -- your desired position
-         
+            location1 = Vector3.new(-22, 6, -1), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -368,21 +606,27 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position -22, 6, -1')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -22, 6, -1 ( Secret elevator )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
+local Section = Tab:CreateSection("Obby")
 local Button = Tab:CreateButton({
-	Name = "Auto complete Escape Room Obby",
+	Name = "Start",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(0.441482306, 547.629578, -482.253204, -0.410465389, -1.74443464e-08, 0.911876202, 5.56876856e-08, 1, 4.41970265e-08, -0.911876202, 6.89216222e-08, -0.410465389), -- your desired position
-         
+            location1 = Vector3.new(-1, 18, -68), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -396,22 +640,26 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position -1, 18, -68')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -1, 18, -68 ( Checkpoint1 )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
-
 local Button = Tab:CreateButton({
-	Name = "Teleport to the center of the map",
+	Name = "Checkpoint 1",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(-0.756521761, 4.60199594, 63.6695213, -0.998800337, 8.80920115e-10, 0.0489683449, -9.82119941e-10, 1, -3.80217422e-08, -0.0489683449, -3.8024222e-08, -0.998800337), -- your desired position
-         
+            location1 = Vector3.new(-3, 52, -103), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -425,21 +673,26 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position -3, 52, -103')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -3, 52, -103 ( Checkpoint )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
 local Button = Tab:CreateButton({
-	Name = "Teleport to the lobby",
+	Name = "Checkpoint 2",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(0.122447081, 6.49999809, -6.97339392, 0.99983269, -1.13094334e-08, -0.0182915237, 1.2380692e-08, 1, 5.8452585e-08, 0.0182915237, -5.8669265e-08, 0.99983269), -- your desired position
-         
+            location1 = Vector3.new(-9, 119, -121), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -453,21 +706,26 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position -9, 119, -121')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -9, 119, -121 ( Checkpoint2 )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
 local Button = Tab:CreateButton({
-	Name = "Teleport to the lobby",
+	Name = "Escape",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(-4.38307858, 5.66799784, -17.024128, 0.0788220093, 2.30728787e-08, 0.996888697, 6.40295497e-08, 1, -2.82075785e-08, -0.996888697), -- your desired position
-            location2 = Vector3.new(6.60537083e-08, 0.0788220093, -21.8640709, 5.99999809, -9.3168869, 0.999688745, -2.14913349e-08, -0.0249474552, 2.18280309e-08, 1, 1.32238638e-08, 0.0249474552, -1.37643017e-08, 0.999688745), -- your desired position
+            location1 = Vector3.new(1, 554, -475), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -481,8 +739,15 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position 1, 554, -475')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position 1, 554, -475 ( EscapePortal )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
@@ -491,10 +756,10 @@ local Button = Tab:CreateButton({
 })
 
 local Button = Tab:CreateButton({
-	Name = "Teleport to the elevator",
+	Name = "Victory",
 	Callback = function()
 		local teleport_table = {
-            location1 = Vector3.new(6.60537083e-08, 0.0788220093, -21.8640709, 5.99999809, -9.3168869, 0.999688745, -2.14913349e-08, -0.0249474552, 2.18280309e-08, 1, 1.32238638e-08, 0.0249474552, -1.37643017e-08, 0.999688745), -- your desired position
+            location1 = Vector3.new(65, 127, -119), -- your desired position
         }
         
         local tween_s = game:GetService('TweenService')
@@ -508,113 +773,156 @@ local Button = Tab:CreateButton({
                 local cf = CFrame.new(v)
                 local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
                 a:Play()
-                -- a.Completed:Wait()
-                -- print('Teleporting Done!')
+                a.Completed:Wait()
+                print('Arrived position 65, 127, -119')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position 65, 127, -119 ( Victory )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
             end
         end
         
         bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
-local Tab = Window:CreateTab("Shop")
-local Section = Tab:CreateSection("Section 1")
-
-local Paragraph = Tab:CreateParagraph({Title = "Free Item", Content = "Type a item name to purchase without using token ( limited/retired/outdated itme included ) | Working Item name [ EggPets,Ornament,Furniture,HouseChest,Spooky,HeartBalloons,WinterChest,Easter,Summer2,Autumn,LunarBundle ]"})
-
-local Input = Tab:CreateInput({
-	Name = "Free Item ( outdated item included )",
-	PlaceholderText = "Name Here",
-	RemoveTextAfterFocusLost = false,
-	Callback = function(Text)
-		local args = {
-            [1] = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
-            [2] = Text
+local Section = Tab:CreateSection("Map")
+local Button = Tab:CreateButton({
+	Name = "Map Center",
+	Callback = function()
+		local teleport_table = {
+            location1 = Vector3.new(-0, 5, 77), -- your desired position
         }
         
-        game:GetService("ReplicatedStorage").ShopPurchase:FireServer(unpack(args))-- The function that takes place when the input is changed
-    		-- The variable (Text) is a string for the value in the text box
+        local tween_s = game:GetService('TweenService')
+        local tweeninfo = TweenInfo.new(1,Enum.EasingStyle.Linear)
+        
+        local lp = game.Players.LocalPlayer
+        
+        function bypass_teleport(v)
+            if lp.Character and 
+            lp.Character:FindFirstChild('HumanoidRootPart') then
+                local cf = CFrame.new(v)
+                local a = tween_s:Create(lp.Character.HumanoidRootPart,tweeninfo,{CFrame=cf})
+                a:Play()
+                a.Completed:Wait()
+                print('Arrived position -0, 5, 77')
+                Rayfield:Notify({ -- Nofity the user with Rayfield Nofitication
+                Title = "Arrived Position",
+                Content = "Successfully arrived position -0, 5, 77 ( MapCenter )",
+                Duration = 6.5, 
+                Image = 11998066503, -- Roblox ID
+            }
+        )
+            end
+        end
+        
+        bypass_teleport(teleport_table.location1)-- The function that takes place when the button is pressed
 	end,
 })
-
-local Paragraph = Tab:CreateParagraph({Title = "LoginReward Exploit", Content = "You'll get Login Rewards Infinite times by clicking the button ( Rejoin to stop the Exploit )."})
-
+local Tab = Window:CreateTab("Customize", 11473531748)
+local Section = Tab:CreateSection("Shop Exploit")
 local Button = Tab:CreateButton({
-	Name = "LoginReward Exploit",
-	Callback = function()
+    Name = "Token Exploit",
+    Callback = function()
+        print("Token Exploit is on")
+        Rayfield:Notify({
+           Title = "Token Exploit",
+           Content = "Token Exploit is activated. Rejoin the game to deactivative ",
+           Duration = 6.5,
+           Image = 12522958471,
+           }
+        )
         while wait() do
-		game:GetService("ReplicatedStorage").LoginRewards:FireServer()
+            game:GetService("ReplicatedStorage").LoginRewards:FireServer()
         end
-	end,
-})
-
-
-
-local Tab = Window:CreateTab("Others")
-local Section = Tab:CreateSection("Section 1")
-
-local Paragraph = Tab:CreateParagraph({Title = "Others", Content = "Hey. We know that our script wasn't that powerful. So we added some other script that's 100% safe"})
-
-local Button = Tab:CreateButton({
-	Name = "infinite Yield | Edge",
-	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "Domain X | Sirius",
-	Callback = function()
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/shlexware/DomainX/main/source',true))()
-	end,
-})
-
-local Paragraph = Tab:CreateParagraph({Title = "Domain X", Content = "Sius Hub will be closed after executed this script"})
-
-local Button = Tab:CreateButton({
-	Name = "CMD- X | Various Developers",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/CMD-X/CMD-X/master/Source", true))()
-	end,
-})
-
-local Paragraph = Tab:CreateParagraph({Title = "CMD-X", Content = "Sius Hub will be closed after executed this script"})
-
-local Button = Tab:CreateButton({
-	Name = "Hydroxide | Upbolt",
-	Callback = function()
-        local owner = "Upbolt"
-local branch = "revision"
-
-local function webImport(file)
-    return loadstring(game:HttpGetAsync(("https://raw.githubusercontent.com/%s/Hydroxide/%s/%s.lua"):format(owner, branch, file)), file .. '.lua')()
-end
-
-webImport("init")
-webImport("ui/main")
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "SimpleSpy | exx",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/exxtremestuffs/SimpleSpySource/master/SimpleSpy.lua", true))()
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "Unnamed ESP | ic3w0lf22",
-	Callback = function()
-        pcall(function() loadstring(game:HttpGet('https://raw.githubusercontent.com/ic3w0lf22/Unnamed-ESP/master/UnnamedESP.lua'))() end)
-	end,
-})
-
-local Button = Tab:CreateButton({
-	Name = "Dark Dex | Moon & Courtney",
-	Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Babyhamsta/RBLX_Scripts/main/Universal/BypassedDarkDexV3.lua", true))()
-	end,
-})
-
-
--- Sius Hub : Rayfield Interface Suite Edition, 440 Line of Codes, Created in October 30 2022 , Sius , Lua Code , Exploit , Hub
+    end,
+ })
+ local Dropdown = Tab:CreateDropdown({
+    Name = "Free item",
+    Options = {"None","Winter","EggPets","Ornament","Furniture","HouseChest","Spooky","HeartBalloons","interChest","Spooky","HeartBalloons","WinterChest","Easter","Summer2","Autumn","LunarBundle"},
+    CurrentOption = "None",
+    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Options)
+     local args = {
+         [1] = 0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001,
+         [2] = Options
+     }
+     Rayfield:Notify({
+        Title = "Selected a item",
+        Content = "Successfully",
+        Duration = 6.5,
+        Image = 12522958471,
+        }
+     )
+     
+     game:GetService("ReplicatedStorage").ShopPurchase:FireServer(unpack(args))
+    end,
+ })
+ local Section = Tab:CreateSection("Inventory Exploit")
+ local Dropdown = Tab:CreateDropdown({
+    Name = "Equip Pet",
+    Options = {"None","EternalDragon","Amogus","CorruptAmogus","SpookyDragon","MoltenDragon","Hallowed","RedDragon","RedVoidDragon","RoseDragon","SoulEatingDragon","AquaDragon","CorruptDragon3","FrozenDragon","StarryDragon","SpectealDragon","FrostDragon","Penguin","Phoenix","Oof","Doge","Duck","BabyDragon","8bitDuck","Skull","Unicorn","BatKin","lvorySword","KnifePet","MoneyBag","Despacito","RainyCloud","AcidCloud","Solar","Squid","Fairy","Skelebird","Ghosty","Sharky","BunnyBot","Hedgehog","ZombiePenguin","RoboDog","Turtle","LeonCar","IcePhenix","Cheese","Crab","OmegaDragon","BloxyColaPet","UfoPet","GoldDragon","Galazy","SpaceDragon","SummerDragon","SpectreDragon","RainbowUnicorn","VolcanoPet","EvilDuck","Beachball","MelonPet","IcecreamPet","InnerDemon","FloatingRock","Doot","MoonPet","Hive","BabyYoda","FrostBear","ArcticWolf","NinjaDog","GhostWarrior","RainbowPhoenix","why","RadioactiveCrabSpider","FuriousFox","BabyReindeer","CorruptDuck","CorruptSeer","CorruptDragon","GenesisDragon","ThunderDragon","CorruptSoldier","CorruptDragon2","Gasball","StormOrbit","FlameOrbit","MasterOrbit","DragonLantern","BlackHoleOrbit","WinterBunny","IceDuck","FancyDuck","DominusEmpyreus","MrBanana","DaybreakPhoenix","ToxicOrbit","MagmaBeast","DemonCurse","TwilightCurse","FrostRing"},
+    CurrentOption = "None",
+    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Options)
+        print("Equipped" , Options)
+        Rayfield:Notify({
+            Title = "Pet Equipped",
+            Content = "Successfully equipped a pet",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        local args = {
+            [1] = Options
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("PetChange"):FireServer(unpack(args)) 
+    end,
+ })
+ local Dropdown = Tab:CreateDropdown({
+    Name = "Equip Death Effects",
+    Options = {"None","SnapDeath","RagdollDeath","FadeDeath","BlackholeDeath"},
+    CurrentOption = "None",
+    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Options)
+        print("Equipped" , Options)
+        Rayfield:Notify({
+            Title = "Effect Equipped",
+            Content = "Successfully equipped a death effect",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        local args = {
+            [1] = Options
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("EquipDeathEffect"):FireServer(unpack(args))
+        
+    end,
+ })
+local Dropdown = Tab:CreateDropdown({
+    Name = "Vote map",
+    Options = {"Town","Snowed in","Shootout","OnePlate","Scattered","Line","Classic","Sweeper","Stud","Gear","Lava","Stack","Sideways","Rapid","Bridges"},
+    CurrentOption = "None",
+    Flag = "Dropdown1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Options)
+        print("Silox | Boost Up Hub | Voted Map" , Options)
+        Rayfield:Notify({
+            Title = "Voted Map",
+            Content = "Successfully voted map",
+            Duration = 6.5,
+            Image = 12522958471,
+            }
+         )
+        local args = {
+            [1] = Options
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("VoteGameMode"):FireServer(unpack(args)) 
+    end,
+ })
